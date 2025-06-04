@@ -29,11 +29,11 @@ export default function App() {
       ) : (
         <>
           <h1 className="text-xl font-bold p-4 pb-2">Earthquake Data</h1>
-          <div className="flex h-[calc(100%-3rem)]"> {/* Remaining height after header */}
-            <div className="w-1/2 h-full border-r">
+          <div className="flex h-[calc(100%-3rem)] bg-gray-50"> {/* Remaining height after header */}
+           <div className="w-1/2 bg-white shadow-md rounded-lg p-4">
               <ChartPanel />
             </div>
-            <div className="w-1/2 h-full overflow-auto">
+            <div className="w-1/2 bg-white shadow-md rounded-lg flex flex-col overflow-hidden">
               <TablePanel />
             </div>
           </div>

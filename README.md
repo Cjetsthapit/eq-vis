@@ -1,54 +1,60 @@
-# React + TypeScript + Vite
+# 🌍 Earthquake Data Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive and interactive dashboard for visualizing earthquake data using charts and tables. Built with **React**, **Recharts**, and **Zustand** for state management.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- 📊 Interactive scatter chart of earthquake parameters
+- 📋 Paginated and selectable table view
+- 🔁 Sync between chart and table selections
+- 🧭 Axis customization (select X and Y axes)
+- 📅 Properly parsed and formatted date-time fields
+- ⚡ Smooth scrolling to selected table rows
+- 📱 Responsive layout
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## 🧰 Prerequisites
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- **Node.js** (v16+ recommended)
+- **npm** or **yarn**
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## ⚙️ Installation
+
+```bash
+# Clone the repo
+git clone https://github.com/yourusername/eq-vis.git
+cd eq-vis
+
+# Install dependencies
+npm install
+
+# Run the app
+npm run dev
+
+#Exteral dependencies
+Zustand	Lightweight global state management for React
+Tailwind CSS	Utility-first CSS framework for rapid UI development
+Recharts	Responsive and customizable charting components
+PapaParse	Fast and powerful CSV parser for JavaScript
+
+## 🤖 Use of AI Tools in Development
+
+# 💡 Code Assistance & Debugging
+- Used ChatGPT to debug runtime errors (e.g., handling `[object Date]` in React rendering).
+- Refactored complex components like `ChartPanel` and `TablePanel` to be more modular, readable, and performant with AI's suggestions.
+- Implemented custom shapes in Recharts with conditionally styled selection using AI guidance.
+
+# 🎨 UI/UX Design
+- Leveraged AI to suggest Tailwind-based layout improvements, responsive structuring, and styling tips.
+- AI-generated visual inspiration for dashboard layout (chart/table split, scroll behavior, pagination).
+
+# 🧠 State Management
+- Used AI to architect and configure Zustand store for global state (pagination, selected row, etc.).
+
+
+

@@ -46,10 +46,10 @@ export default function ChartPanel() {
   return (
     <div className="p-4 h-full flex flex-col">
       <div className="flex gap-4 mb-4">
-        <select value={xKey} onChange={(e) => setXKey(e.target.value)} className="border p-1">
-          {numericKeys.map((key) => <option key={key}>{key}</option>)}
+         X:<select value={xKey} onChange={(e) => setXKey(e.target.value)} className="border p-1">
+         {numericKeys.map((key) => <option key={key}>{key}</option>)}
         </select>
-        <select value={yKey} onChange={(e) => setYKey(e.target.value)} className="border p-1">
+        Y: <select value={yKey} onChange={(e) => setYKey(e.target.value)} className="border p-1">
           {numericKeys.map((key) => <option key={key}>{key}</option>)}
         </select>
       </div>
