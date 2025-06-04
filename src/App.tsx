@@ -1,35 +1,44 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect } from 'react';
+import { loadCSV } from './loadCSV';
+import useDataStore from './useDataStore';
+import ChartPanel from './components/ChartPanel';
+import TablePanel from './components/TablePanel';
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  const { setData, loading, setLoading } = useDataStore();
+
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      loadCSV()
+        .then(setData)
+        .catch((err) => {
+          console.error(err);
+          setLoading(false);
+        });
+    }, 1000);
+  }, [setData, setLoading]);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="h-screen overflow-hidden">
+      {loading ? (
+        <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-white">
+          <div className="loader"></div>
+          <p className="text-xl font-semibold text-gray-700 mt-4">Loading earthquake data...</p>
+        </div>
+      ) : (
+        <>
+          <h1 className="text-xl font-bold p-4 pb-2">Earthquake Data</h1>
+          <div className="flex h-[calc(100%-3rem)]"> {/* Remaining height after header */}
+            <div className="w-1/2 h-full border-r">
+              <ChartPanel />
+            </div>
+            <div className="w-1/2 h-full overflow-auto">
+              <TablePanel />
+            </div>
+          </div>
+        </>
+      )}
+    </div>
+  );
 }
-
-export default App
